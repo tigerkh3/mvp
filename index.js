@@ -3,7 +3,16 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.use(express.static('./client/index.html'));
+app.use(express.static('src/dist'));
+
+
+// express routers here
+
+// GET method here
+
+
+// POST method here
+
 
 
 app.listen(port, function() {
