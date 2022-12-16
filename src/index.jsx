@@ -1,18 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { useState } from 'react';
 import Search from './components/Search.jsx';
 import $ from 'jquery';
 
 
 function App() {
 
+  // have our state here
+  // state for list of food places
+  const [options, setOptions] = useState([]);
+
   // need to create functions we can pass down
-
-  // handle change function
-
-
-  // function that reads the text in the input form
-
   // function that makes a post request
   function getFoods (e) {
     e.preventDefault();
@@ -32,14 +31,17 @@ function App() {
     // use a ajax fetch with post method
     fetch('/getfoods', options)
       .then( (result) => {
-        console.log('working');
+        result.json()
+          .then ((result) => {
+            // go through all the data here
+            setOptions(result);
+          })
       })
-
   }
 
   return (
     <div>
-      <Search name={getFoods}/>
+      <Search options={options} name={getFoods}/>
     </div>
   )
 }
