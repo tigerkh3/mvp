@@ -3,7 +3,7 @@ import React from 'react';
 function Search (props) {
 
   var test = props.options.map( (currOption) =>
-    <li><a href={currOption.url}> {currOption.name}</a></li>
+    <li><a href={currOption.url} target="_blank"> {currOption.name}</a></li>
   )
 
   // props.options is our array of restaurants
